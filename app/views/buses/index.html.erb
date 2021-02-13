@@ -1,69 +1,97 @@
+<section class="content">
+ 
 <p id="notice"><%= notice %></p>
+<div class="box">
+<div class="box-header with-border">
+<h3 class="box-title">Buses</h3>
+</div>
+<!-- /.box-header -->
+<div class="box-body">
+<table class="table table-bordered">
+ <thead>
+   <tr>
+     <th>Maximum transmission power</th>
+     <th>Baud rate</th>
+     <th>Receiver sensitivity</th>
+     <th>Effective receiver band</th>
+     <th>Codification</th>
+     <th>Link distance</th>
+     <th>Number of stations</th>
+     <th>Insertion loss</th>
+     <th>Loss of dp coupling</th>
+     <th>Loss of excess dp</th>
+     <th>Link length</th>     
+     <th>Fiber attenuation coefficient</th>
+     <th colspan="3"></th>
+   </tr>
+ </thead>
 
-<h1>Buses</h1>
+ <tbody>
+   <% @buses.each do |bus| %>
+     <tr>
+       <td><%= bus.maximum_transmission_power %></td>
+       <td><%= bus.baud_rate %></td>
+       <td><%= bus.receiver_sensitivity %></td>
+       <td><%= bus.effective_receiver_band %></td>
+       <td><%= bus.codification %></td>
+       <td><%= bus.link_distance %></td>
+       <td><%= bus.number_of_stations %></td>
+       <td><%= bus.insertion_loss %></td>
+       <td><%= bus.loss_of_DP_coupling %></td>
+       <td><%= bus.loss_of_excess_DP %></td>
+       <td><%= bus.link_length %></td>
+       <td><%= bus.fiber_attenuation_coefficient %></td>
+     </tr>
+   <% end %>
+ </tbody>
 
-<table>
   <thead>
-    <tr>
-      <th>Maximum transmission power</th>
-      <th>Baud rate</th>
-      <th>Receiver sensitivity</th>
-      <th>Effective receiver band</th>
-      <th>Codification</th>
-      <th>Link distance</th>
-      <th>Number of stations</th>
-      <th>Insertion loss</th>
-      <th>Loss of dp coupling</th>
-      <th>Loss of excess dp</th>
-      <th>Link length</th>
-      <th>Fiber attenuation coefficient</th>
-      <th>Loss of transmission of the t coupler</th>
-      <th>Loss of coupling t coupler</th>
-      <th>Excess loss of t coupler</th>
-      <th>Dispersion balance</th>
-      <th>Electric tx bandwidth</th>
-      <th>Spectral width</th>
-      <th>Chromatic dispersion</th>
-      <th>Optical bandwidth</th>
-      <th>Coupling coefficient</th>
-      <th>Electric rx bandwidth</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+    <tr> 
+     <th>Loss of transmission of the t coupler</th>
+     <th>Loss of coupling t coupler</th>
+     <th>Excess loss of t coupler</th>
+     <th>Dispersion balance</th>
+     <th>Electric tx bandwidth</th>
+     <th>Spectral width</th>
+     <th>Chromatic dispersion</th>
+     <th>Optical bandwidth</th>
+     <th>Coupling coefficient</th>
+     <th>Electric rx bandwidth</th>
+     <th>Power Balance</th>
+     <th colspan="3"></th>
+   </tr>
+ </thead>
+ 
 
-  <tbody>
-    <% @buses.each do |bus| %>
+
+
+ <tbody>
+   <% @buses.each do |bus| %>
       <tr>
-        <td><%= bus.maximum_transmission_power %></td>
-        <td><%= bus.baud_rate %></td>
-        <td><%= bus.receiver_sensitivity %></td>
-        <td><%= bus.effective_receiver_band %></td>
-        <td><%= bus.codification %></td>
-        <td><%= bus.link_distance %></td>
-        <td><%= bus.number_of_stations %></td>
-        <td><%= bus.insertion_loss %></td>
-        <td><%= bus.loss_of_DP_coupling %></td>
-        <td><%= bus.loss_of_excess_DP %></td>
-        <td><%= bus.link_length %></td>
-        <td><%= bus.fiber_attenuation_coefficient %></td>
-        <td><%= bus.loss_of_transmission_of_the_T_coupler %></td>
-        <td><%= bus.loss_of_coupling_T_coupler %></td>
-        <td><%= bus.excess_loss_of_T_coupler %></td>
-        <td><%= bus.dispersion_balance %></td>
-        <td><%= bus.electric_Tx_bandwidth %></td>
-        <td><%= bus.spectral_width %></td>
-        <td><%= bus.chromatic_dispersion %></td>
-        <td><%= bus.optical_bandwidth %></td>
-        <td><%= bus.coupling_coefficient %></td>
-        <td><%= bus.electric_Rx_bandwidth %></td>
-        <td><%= link_to 'Show', bus %></td>
-        <td><%= link_to 'Edit', edit_bus_path(bus) %></td>
-        <td><%= link_to 'Destroy', bus, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
+       <td><%= bus.loss_of_transmission_of_the_T_coupler %></td>
+       <td><%= bus.loss_of_coupling_T_coupler %></td>
+       <td><%= bus.excess_loss_of_T_coupler %></td>
+       <td><%= bus.dispersion_balance %></td>
+       <td><%= bus.electric_Tx_bandwidth %></td>
+       <td><%= bus.spectral_width %></td>
+       <td><%= bus.chromatic_dispersion %></td>
+       <td><%= bus.optical_bandwidth %></td>
+       <td><%= bus.coupling_coefficient %></td>
+       <td><%= bus.electric_Rx_bandwidth %></td>
+       <td><%= bus.power_balance %></td>
+       <td><%= link_to 'Show', bus %></td>
+       <td><%= link_to 'Edit', edit_bus_path(bus) %></td>
+       <td><%= link_to 'Destroy', bus, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+     </tr>
+   <% end %>
+ </tbody>
 </table>
-
+ 
+</div>
+</div>
+ 
 <br>
-
-<%= link_to 'New Bus', new_bus_path %>
+ 
+<a class="btn btn-primary" style="color: white;" href="/buses/new">New Bus</a>
+ 
+ </section>
