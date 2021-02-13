@@ -1,0 +1,49 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  maximum_transmission_power: 1.5
+  baud_rate: 1.5
+  receiver_sensitivity: 1.5
+  effective_receiver_band: 1.5
+  codification: false
+  link_distance: false
+  number_of_stations: 1.5
+  insertion_loss: 1.5
+  loss_of_DP_coupling: 1.5
+  loss_of_excess_DP: 1.5
+  link_length: 1.5
+  fiber_attenuation_coefficient: 1.5
+  loss_of_transmission_of_the_T_coupler: 1.5
+  loss_of_coupling_T_coupler: 1.5
+  excess_loss_of_T_coupler: 1.5
+  dispersion_balance: 1.5
+  electric_Tx_bandwidth: 1.5
+  spectral_width: 1.5
+  chromatic_dispersion: 1.5
+  optical_bandwidth: 1.5
+  coupling_coefficient: 1.5
+  electric_Rx_bandwidth: 1.5
+
+two:
+  maximum_transmission_power: 1.5
+  baud_rate: 1.5
+  receiver_sensitivity: 1.5
+  effective_receiver_band: 1.5
+  codification: false
+  link_distance: false
+  number_of_stations: 1.5
+  insertion_loss: 1.5
+  loss_of_DP_coupling: 1.5
+  loss_of_excess_DP: 1.5
+  link_length: 1.5
+  fiber_attenuation_coefficient: 1.5
+  loss_of_transmission_of_the_T_coupler: 1.5
+  loss_of_coupling_T_coupler: 1.5
+  excess_loss_of_T_coupler: 1.5
+  dispersion_balance: 1.5
+  electric_Tx_bandwidth: 1.5
+  spectral_width: 1.5
+  chromatic_dispersion: 1.5
+  optical_bandwidth: 1.5
+  coupling_coefficient: 1.5
+  electric_Rx_bandwidth: 1.5

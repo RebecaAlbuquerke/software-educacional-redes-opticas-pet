@@ -1,0 +1,47 @@
+<%= form_with(model: ring, local: true) do |form| %>
+  <% if ring.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(ring.errors.count, "error") %> prohibited this ring from being saved:</h2>
+
+      <ul>
+      <% ring.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :maximum_transmission_power %>
+    <%= form.text_field :maximum_transmission_power %>
+  </div>
+
+  <div class="field">
+    <%= form.label :baud_rate %>
+    <%= form.text_field :baud_rate %>
+  </div>
+
+  <div class="field">
+    <%= form.label :receiver_sensitivity %>
+    <%= form.text_field :receiver_sensitivity %>
+  </div>
+
+  <div class="field">
+    <%= form.label :effective_receiver_band %>
+    <%= form.text_field :effective_receiver_band %>
+  </div>
+
+  <div class="field">
+    <%= form.label :codification %>
+    <%= form.check_box :codification %>
+  </div>
+
+  <div class="field">
+    <%= form.label :link_distance %>
+    <%= form.check_box :link_distance %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

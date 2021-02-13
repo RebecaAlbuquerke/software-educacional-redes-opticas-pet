@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Maximum transmission power:</strong>
+  <%= @ring.maximum_transmission_power %>
+</p>
+
+<p>
+  <strong>Baud rate:</strong>
+  <%= @ring.baud_rate %>
+</p>
+
+<p>
+  <strong>Receiver sensitivity:</strong>
+  <%= @ring.receiver_sensitivity %>
+</p>
+
+<p>
+  <strong>Effective receiver band:</strong>
+  <%= @ring.effective_receiver_band %>
+</p>
+
+<p>
+  <strong>Codification:</strong>
+  <%= @ring.codification %>
+</p>
+
+<p>
+  <strong>Link distance:</strong>
+  <%= @ring.link_distance %>
+</p>
+
+<%= link_to 'Edit', edit_ring_path(@ring) %> |
+<%= link_to 'Back', rings_path %>

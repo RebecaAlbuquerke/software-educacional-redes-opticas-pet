@@ -1,0 +1,127 @@
+<%= form_with(model: bus, local: true) do |form| %>
+  <% if bus.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(bus.errors.count, "error") %> prohibited this bus from being saved:</h2>
+
+      <ul>
+      <% bus.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :maximum_transmission_power %>
+    <%= form.text_field :maximum_transmission_power %>
+  </div>
+
+  <div class="field">
+    <%= form.label :baud_rate %>
+    <%= form.text_field :baud_rate %>
+  </div>
+
+  <div class="field">
+    <%= form.label :receiver_sensitivity %>
+    <%= form.text_field :receiver_sensitivity %>
+  </div>
+
+  <div class="field">
+    <%= form.label :effective_receiver_band %>
+    <%= form.text_field :effective_receiver_band %>
+  </div>
+
+  <div class="field">
+    <%= form.label :codification %>
+    <%= form.check_box :codification %>
+  </div>
+
+  <div class="field">
+    <%= form.label :link_distance %>
+    <%= form.check_box :link_distance %>
+  </div>
+
+  <div class="field">
+    <%= form.label :number_of_stations %>
+    <%= form.text_field :number_of_stations %>
+  </div>
+
+  <div class="field">
+    <%= form.label :insertion_loss %>
+    <%= form.text_field :insertion_loss %>
+  </div>
+
+  <div class="field">
+    <%= form.label :loss_of_DP_coupling %>
+    <%= form.text_field :loss_of_DP_coupling %>
+  </div>
+
+  <div class="field">
+    <%= form.label :loss_of_excess_DP %>
+    <%= form.text_field :loss_of_excess_DP %>
+  </div>
+
+  <div class="field">
+    <%= form.label :link_length %>
+    <%= form.text_field :link_length %>
+  </div>
+
+  <div class="field">
+    <%= form.label :fiber_attenuation_coefficient %>
+    <%= form.text_field :fiber_attenuation_coefficient %>
+  </div>
+
+  <div class="field">
+    <%= form.label :loss_of_transmission_of_the_T_coupler %>
+    <%= form.text_field :loss_of_transmission_of_the_T_coupler %>
+  </div>
+
+  <div class="field">
+    <%= form.label :loss_of_coupling_T_coupler %>
+    <%= form.text_field :loss_of_coupling_T_coupler %>
+  </div>
+
+  <div class="field">
+    <%= form.label :excess_loss_of_T_coupler %>
+    <%= form.text_field :excess_loss_of_T_coupler %>
+  </div>
+
+  <div class="field">
+    <%= form.label :dispersion_balance %>
+    <%= form.text_field :dispersion_balance %>
+  </div>
+
+  <div class="field">
+    <%= form.label :electric_Tx_bandwidth %>
+    <%= form.text_field :electric_Tx_bandwidth %>
+  </div>
+
+  <div class="field">
+    <%= form.label :spectral_width %>
+    <%= form.text_field :spectral_width %>
+  </div>
+
+  <div class="field">
+    <%= form.label :chromatic_dispersion %>
+    <%= form.text_field :chromatic_dispersion %>
+  </div>
+
+  <div class="field">
+    <%= form.label :optical_bandwidth %>
+    <%= form.text_field :optical_bandwidth %>
+  </div>
+
+  <div class="field">
+    <%= form.label :coupling_coefficient %>
+    <%= form.text_field :coupling_coefficient %>
+  </div>
+
+  <div class="field">
+    <%= form.label :electric_Rx_bandwidth %>
+    <%= form.text_field :electric_Rx_bandwidth %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

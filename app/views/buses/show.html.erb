@@ -1,0 +1,114 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Maximum transmission power:</strong>
+  <%= @bus.maximum_transmission_power %>
+</p>
+
+<p>
+  <strong>Baud rate:</strong>
+  <%= @bus.baud_rate %>
+</p>
+
+<p>
+  <strong>Receiver sensitivity:</strong>
+  <%= @bus.receiver_sensitivity %>
+</p>
+
+<p>
+  <strong>Effective receiver band:</strong>
+  <%= @bus.effective_receiver_band %>
+</p>
+
+<p>
+  <strong>Codification:</strong>
+  <%= @bus.codification %>
+</p>
+
+<p>
+  <strong>Link distance:</strong>
+  <%= @bus.link_distance %>
+</p>
+
+<p>
+  <strong>Number of stations:</strong>
+  <%= @bus.number_of_stations %>
+</p>
+
+<p>
+  <strong>Insertion loss:</strong>
+  <%= @bus.insertion_loss %>
+</p>
+
+<p>
+  <strong>Loss of dp coupling:</strong>
+  <%= @bus.loss_of_DP_coupling %>
+</p>
+
+<p>
+  <strong>Loss of excess dp:</strong>
+  <%= @bus.loss_of_excess_DP %>
+</p>
+
+<p>
+  <strong>Link length:</strong>
+  <%= @bus.link_length %>
+</p>
+
+<p>
+  <strong>Fiber attenuation coefficient:</strong>
+  <%= @bus.fiber_attenuation_coefficient %>
+</p>
+
+<p>
+  <strong>Loss of transmission of the t coupler:</strong>
+  <%= @bus.loss_of_transmission_of_the_T_coupler %>
+</p>
+
+<p>
+  <strong>Loss of coupling t coupler:</strong>
+  <%= @bus.loss_of_coupling_T_coupler %>
+</p>
+
+<p>
+  <strong>Excess loss of t coupler:</strong>
+  <%= @bus.excess_loss_of_T_coupler %>
+</p>
+
+<p>
+  <strong>Dispersion balance:</strong>
+  <%= @bus.dispersion_balance %>
+</p>
+
+<p>
+  <strong>Electric tx bandwidth:</strong>
+  <%= @bus.electric_Tx_bandwidth %>
+</p>
+
+<p>
+  <strong>Spectral width:</strong>
+  <%= @bus.spectral_width %>
+</p>
+
+<p>
+  <strong>Chromatic dispersion:</strong>
+  <%= @bus.chromatic_dispersion %>
+</p>
+
+<p>
+  <strong>Optical bandwidth:</strong>
+  <%= @bus.optical_bandwidth %>
+</p>
+
+<p>
+  <strong>Coupling coefficient:</strong>
+  <%= @bus.coupling_coefficient %>
+</p>
+
+<p>
+  <strong>Electric rx bandwidth:</strong>
+  <%= @bus.electric_Rx_bandwidth %>
+</p>
+
+<%= link_to 'Edit', edit_bus_path(@bus) %> |
+<%= link_to 'Back', buses_path %>
