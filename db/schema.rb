@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_25_164957) do
+ActiveRecord::Schema.define(version: 2021_02_25_174936) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,6 +41,9 @@ ActiveRecord::Schema.define(version: 2021_02_25_164957) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.float "power_balance"
+    t.float "effective_band"
+    t.float "input_power"
+    t.float "relative_sensitivity"
   end
 
   create_table "rings", force: :cascade do |t|
