@@ -20,9 +20,9 @@ class Bus < ApplicationRecord
 
    def perdadeenlace
     if self.link_distance == 1
-        self.Ae_a1 = self.loss_of_amendments / self.average_fiber_length
+        self.ae_a1 = self.loss_of_amendments / self.average_fiber_length
         self.link_losses =  2 * (2 * self.insertion_loss + self.loss_of_DP_coupling + self.loss_of_excess_DP) + (self.number_of_stations - 2) * (
-            2 * self.insertion_loss + self.loss_of_transmission_of_the_T_coupler + self.excess_loss_of_T_coupler) + (self.fiber_attenuation_coefficient + self.Ae_a1) * self.link_length  # Perdas do Enlace
+            2 * self.insertion_loss + self.loss_of_transmission_of_the_T_coupler + self.excess_loss_of_T_coupler) + (self.fiber_attenuation_coefficient + self.ae_a1) * self.link_length  # Perdas do Enlace
         self.save
     else
         self.link_losses =  2 * (2 * self.insertion_loss + self.loss_of_DP_coupling + self.loss_of_excess_DP) + (self.number_of_stations - 2) * (
