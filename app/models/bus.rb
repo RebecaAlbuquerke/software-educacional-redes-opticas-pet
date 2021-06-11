@@ -1,11 +1,11 @@
 class Bus < ApplicationRecord
 
-  after_create :balanco
+  after_create :balancodepotencia
   after_create :perdadeenlace
   after_create :balancodedispersao
   
   
-   def balanco
+   def balancodepotencia
        self.input_power = self.maximum_transmission_power - 3  # Potencia de Entrada
        if self.codification == 1
            self.effective_band = self.effective_receiver_band  # Banda Efetiva
@@ -32,19 +32,26 @@ class Bus < ApplicationRecord
    end
 
    def balancodedispersao
-    self.tTO_a1 = 0.35 / (self.electric_Tx_bandwidth * (10**6))  # Tempo de subida do pulso do TX
-    self.rhoTO_a1 = self.tTO_a1 / 2.1972  # Alargamento do pulso do TX
-    self.deltarho_a1 = 0.188 / (self.optical_bandwidth * (10 ** 6))
-    self.rhoModal_a1 = self.deltarho_a1 * (self.dist_a1 ** self.coupling_coefficient)  # Dispersão modal da fibra
-    self.rhoCrom_a1 = self.chromatic_dispersion * (10 ** -12) * self.spectral_width * self.dist_a1  # Dispersão cromática da fibra
-    self.rhoFibra_a1 = sqrt((self.rhoModal_a1 ** 2) + (self.rhoCrom_a1 ** 2))  # Alargamento total do pulso introduzido pela fibra
-    self.tf_a1 = 2.354 * self.rhoFibra_a1  # Tempo total de subida da fibra óptica
-    self.tRO_a1 = 0.35 / (self.electric_Rx_bandwidth * (10 ** 6))  # Tempo de subida no receptor
-    self.rhoRO_a1 = self.tRO_a1 / 2.1972  # Alargamento do pulso no receptor
-    self.rhosist_a1 = sqrt((self.rhoTO_a1 ** 2) + (self.rhoFibra_a1 ** 2) + (self.rhoRO_a1 ** 2))  # Alargamento do pulso do sistema
-    self.tsist_a1 = sqrt((self.tTO_a1 ** 2) + (self.tf_a1 ** 2) + (self.tRO_a1 ** 2))  # Tempo de subida do sistema
-    self.interv1_a1 = 1 / (self.effective_band * (10 ** 6))  # Periodo T
-    self.dispersion_balance = (self.rhosist_a1 / self.interv1_a1) * 100
+    tTO_a1 = 0.35 / (self.electric_Tx_bandwidth * (10**6))  # Tempo de subida do pulso do TX
+    rhoTO_a1 = tTO_a1 / 2.1972  # Alargamento do pulso do TX
+    deltarho_a1 = 0.188 / (self.optical_bandwidth * (10 ** 6))
+    
+    if self.link_distance == 1
+        rhoModal_a1 = deltarho_a1 * ((1) ** (self.coupling_coefficient))  # Dispersão modal da fibra
+        rhoCrom_a1 = chromatic_dispersion * (10 ** -12) * self.spectral_width * 1  # Dispersão cromática da fibra
+    else
+        rhoModal_a1 = deltarho_a1 * ((0) ** (self.coupling_coefficient))  # Dispersão modal da fibra
+        rhoCrom_a1 = chromatic_dispersion * (10 ** -12) * self.spectral_width * 0  # Dispersão cromática da fibra
+    end
+
+    rhoFibra_a1 = Math.sqrt((rhoModal_a1 ** 2) + (rhoCrom_a1 ** 2))  # Alargamento total do pulso introduzido pela fibra
+    tf_a1 = 2.354 * rhoFibra_a1  # Tempo total de subida da fibra óptica
+    tRO_a1 = 0.35 / (self.electric_Rx_bandwidth * (10 ** 6))  # Tempo de subida no receptor
+    rhoRO_a1 = tRO_a1 / 2.1972  # Alargamento do pulso no receptor
+    rhosist_a1 = Math.sqrt((rhoTO_a1 ** 2) + (rhoFibra_a1 ** 2) + (rhoRO_a1 ** 2))  # Alargamento do pulso do sistema
+    tsist_a1 = Math.sqrt((tTO_a1 ** 2) + (tf_a1 ** 2) + (tRO_a1 ** 2))  # Tempo de subida do sistema
+    interv1_a1 = 1 / (self.effective_band * (10 ** 6))  # Periodo T
+    self.dispersion_balance = (rhosist_a1 / interv1_a1) * 100
    end
 
 end
