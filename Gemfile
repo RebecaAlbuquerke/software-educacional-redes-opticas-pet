@@ -6,6 +6,8 @@ ruby '2.5.8'
 gem 'devise'
 gem 'adminlte2-rails'
 
+gem 'rails_12factor', group: :production
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.4', '>= 5.2.4.4'
 # Use postgresql as the database for Active Record
